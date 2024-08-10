@@ -1,0 +1,37 @@
+<div id="menu" class="h-screen flex flex-col py-5 bg-slate-700 min-h-screen z-10 text-slate-300 w-64 left-0 relative ">
+    <div id="logo" class="my-4 px-6">
+        <h1 class="text-lg md:text-2xl font-bold text-white text-center">Biblioteca Popular Digital</h1>
+        <p class="text-slate-500 py-3 text-sm text-center">Centro de Pensamiento y Acción Popular</p>
+    </div>
+    <div id="profile" class="px-6 text-center">
+        <p class="text-5xl">☭</p>
+        <p class="text-slate-500 text-2xl">Bienvenido</p>
+        <span class="text-sm md:text-base font-bold text-center">
+            &#64;{{username.toUpperCase()}}
+        </span>
+
+    </div>
+    <div id="nav" class="w-full px-6 py-5 ">
+
+        @for (item of menuItems; track $index) {
+        <a [routerLink]="item.path" routerLinkActive="bg-blue-800"
+            class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 bg-slate-700 hover:bg-white/5 transition ease-linear duration-200">
+            <div class="flex flex-row">
+                <span [innerHTML]="item.icon" class="text-lg"></span>
+                <span class="text-lg font-bold leading-5 text-white px-2">{{item.title}}</span>
+            </div>
+        </a>
+        }
+        <a (click)="logout()"
+            class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 bg-slate-700 hover:bg-white/5 transition ease-linear duration-200 cursor-pointer">
+            <div class="flex flex-row items-center">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
+                </svg>
+                <span class="text-lg font-bold leading-5 text-white ml-2">Logout</span>
+            </div>
+        </a>
+    </div>
+</div>

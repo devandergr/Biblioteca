@@ -1,0 +1,49 @@
+<!-- component -->
+<div class="bg-grey-lighter min-h-screen flex flex-col">
+    <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+        <form [formGroup]="registerForm" (ngSubmit)="register()" class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+            <h1 class="mb-8 text-3xl text-center">Registrate</h1>
+            <input 
+                type="text"
+                class="block border border-grey-light w-full p-3 rounded mb-4"
+                formControlName="first_name"
+                placeholder="First Name" />
+
+            <input 
+                type="text"
+                class="block border border-grey-light w-full p-3 rounded mb-4"
+                formControlName="last_name"
+                placeholder="Last Name" />
+
+            <input 
+                type="text"
+                class="block border border-grey-light w-full p-3 rounded mb-4"
+                formControlName="username"
+                placeholder="Username" />
+
+            <input 
+                type="password"
+                class="block border border-grey-light w-full p-3 rounded mb-4"
+                formControlName="password"
+                placeholder="Password" />   
+
+            <button
+                type="submit"
+                class="w-full text-center py-3 rounded bg-slate-600 text-white hover:bg-slate-700 focus:outline-none my-1"
+                >Crear Cuenta</button>
+            @if (message === '¡Registro exitoso!' ) {
+                <div class="text-green-500 text-center mt-4">{{message}}</div>
+            } @else {
+                <div class="text-red-500 text-center mt-4">{{message}}</div>
+            }
+
+        </form>
+
+        <div class="text-grey-dark mt-6">
+            ¿Ya tienes una cuenta? 
+            <a class="no-underline  border-blue text-black" href="../auth/login/">
+                <span class="text-slate-600">Inicia Sesión</span>
+            </a>.
+        </div>
+    </div>
+</div>
